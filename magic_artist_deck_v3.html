@@ -3329,7 +3329,7 @@ function go(n) {
   /* Trigger cover shimmer once when landing on slide 0 */
   if (cur === 0) {
     var el = document.querySelector('.cover-title');
-    if (el) { el.style.animation = 'none'; el.offsetHeight; el.style.animation = 'textShimmer 4s ease-out 0.3s 1 forwards'; }
+    if (el) { el.style.animation = 'none'; el.offsetHeight; el.style.animation = 'textShimmer 3.5s linear 0s 1 forwards'; }
   }
 }
 function next() { if (cur < TOTAL - 1) go(cur + 1); }
