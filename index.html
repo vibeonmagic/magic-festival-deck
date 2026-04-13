@@ -192,11 +192,10 @@ html, body { width:100%; height:100%; background:var(--bg); font-family:'Gilroy'
 
 /* Typography */
 .tag {
-  display:flex; align-items:center; justify-content:center; gap:6px;
-  width:fit-content;
-  padding:5px 16px; border-radius:100px; font-size:11px;
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  width:220px; padding:5px 14px; border-radius:100px; font-size:11px;
   font-weight:600; letter-spacing:0.1em; text-transform:uppercase; text-align:center;
-  white-space:nowrap; align-self:flex-start;
+  white-space:nowrap;
   border:1px solid rgba(31,206,255,0.3); color:var(--cyan);
   background:rgba(31,206,255,0.07);
 }
@@ -1554,7 +1553,7 @@ body.present-mode #present-arrows { display:flex !important; }
         Social gives you visibility. Magic makes it your business. One space where your scattered followers become a fandom you own, and that fandom generates direct revenue. That's your Fanverse.
       </p>
     </div>
-    <a href="https://www.goldmansachs.com/insights/articles/global-music-revenues-are-forecast-to-double-to-200-million-in-2035" target="_blank" style="position:absolute;left:96px;width:360px;text-align:center;bottom:48px;font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:0.02em;text-decoration:none;" data-en="*Source: Goldman Sachs — Global Music Revenue Forecast" data-fr="*Source : Goldman Sachs — Prévisions de revenus musicaux mondiaux">*Source: Goldman Sachs — Global Music Revenue Forecast</a>
+    <a href="https://www.goldmansachs.com/insights/articles/global-music-revenues-are-forecast-to-double-to-200-million-in-2035" target="_blank" style="position:absolute;left:96px;text-align:center;bottom:48px;font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:0.02em;text-decoration:none;white-space:nowrap;" data-en="*Source: Goldman Sachs — Global Music Revenue Forecast" data-fr="*Source : Goldman Sachs — Prévisions de revenus musicaux mondiaux">*Source: Goldman Sachs — Global Music Revenue Forecast</a>
 
     <div style="flex:1;position:relative;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:0;margin-left:32px;padding:12px 0 24px;">
 
@@ -1765,7 +1764,8 @@ body.present-mode #present-arrows { display:flex !important; }
         <div class="ss-star" style="width:3px;height:3px;top:50%;left:calc(50% - 265px);transform:translate(-50%,-50%);opacity:.65;"></div>
 
         <div class="ss-sun">
-          <span style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:9px;color:#3d2000;letter-spacing:0.06em;text-align:center;line-height:1.5;" data-en="YOUR<br>FESTIVAL" data-fr="VOTRE<br>FESTIVAL">YOUR<br>FESTIVAL</span>
+          <span style="font-family:'Gilroy',sans-serif;font-size:9px;color:rgba(61,32,0,0.7);letter-spacing:0.1em;" data-en="YOUR" data-fr="VOTRE">YOUR</span>
+          <span style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:11px;color:#3d2000;letter-spacing:0.08em;" data-en="FESTIVAL" data-fr="FESTIVAL">FESTIVAL</span>
         </div>
 
         <div class="r1" style="--spd:20s;--s:0deg;">
@@ -2081,10 +2081,10 @@ body.present-mode #present-arrows { display:flex !important; }
         </defs>
 
         <!-- Milestone labels -->
-        <text x="200" y="82" text-anchor="middle" fill="white" font-family="Gilroy,sans-serif" font-weight="700" font-size="14" filter="url(#txt-glow)">Line-up</text>
-        <text x="200" y="96" text-anchor="middle" fill="white" font-family="Gilroy,sans-serif" font-weight="700" font-size="14" filter="url(#txt-glow)">Announcement</text>
-        <text x="500" y="98" text-anchor="middle" fill="white" font-family="Gilroy,sans-serif" font-weight="700" font-size="14" filter="url(#txt-glow)">Tickets on sale</text>
-        <text x="840" y="8" text-anchor="middle" fill="white" font-family="Gilroy,sans-serif" font-weight="700" font-size="16" filter="url(#txt-glow)">Festival</text>
+        <text x="200" y="82" text-anchor="middle" fill="white" font-family="Gilroy,sans-serif" font-weight="700" font-size="14" filter="url(#txt-glow)" data-en="Line-up" data-fr="Annonce de">Line-up</text>
+        <text x="200" y="96" text-anchor="middle" fill="white" font-family="Gilroy,sans-serif" font-weight="700" font-size="14" filter="url(#txt-glow)" data-en="announcement" data-fr="la programmation">announcement</text>
+        <text x="500" y="98" text-anchor="middle" fill="white" font-family="Gilroy,sans-serif" font-weight="700" font-size="14" filter="url(#txt-glow)" data-en="Tickets on sale" data-fr="Billetterie ouverte">Tickets on sale</text>
+        <text x="840" y="8" text-anchor="middle" fill="white" font-family="Gilroy,sans-serif" font-weight="700" font-size="16" filter="url(#txt-glow)" data-en="Festival" data-fr="Festival">Festival</text>
 
         <!-- Baseline -->
         <line x1="20" y1="210" x2="1320" y2="210" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
@@ -2161,32 +2161,32 @@ body.present-mode #present-arrows { display:flex !important; }
         <g opacity="0.9"><circle cx="1260" cy="236" r="12" fill="rgba(204,43,251,0.12)" stroke="rgba(204,43,251,0.35)" stroke-width="1"/><g transform="translate(1260,236) scale(0.8) translate(-1260,-236)"><rect x="1251" y="230" width="18" height="12" rx="3" stroke="#CC2BFB" stroke-width="1.4" fill="none"/><path d="M1255 234v4M1253 236h4" stroke="#CC2BFB" stroke-width="1.4" stroke-linecap="round"/><circle cx="1264" cy="234" r="1.2" fill="#CC2BFB"/><circle cx="1267" cy="236" r="1.2" fill="#CC2BFB"/></g></g>
 
         <!-- Labels -->
-        <text x="80" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Line-up</text>
-        <text x="80" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">tease</text>
-        <text x="200" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Competition</text>
-        <text x="200" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">for tickets</text>
-        <text x="310" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Ticket</text>
-        <text x="310" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">pre-orders</text>
-        <text x="420" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Artist</text>
-        <text x="420" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">BTS</text>
-        <text x="500" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Digital</text>
-        <text x="500" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">packs</text>
-        <text x="600" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Merch pre-</text>
-        <text x="600" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">orders</text>
-        <text x="710" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Ticket</text>
-        <text x="710" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">upgrades</text>
-        <text x="800" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Sponsored</text>
-        <text x="800" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">activations</text>
-        <text x="880" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Timed</text>
-        <text x="880" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">activations</text>
-        <text x="960" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Merch &amp;</text>
-        <text x="960" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Memories</text>
-        <text x="1060" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Recap</text>
-        <text x="1060" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">challenge</text>
-        <text x="1150" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Next year</text>
-        <text x="1150" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">pre-orders</text>
-        <text x="1260" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">Competition</text>
-        <text x="1260" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10">for tickets</text>
+        <text x="80" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Line-up" data-fr="Teasing">Line-up</text>
+        <text x="80" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="tease" data-fr="programmation">tease</text>
+        <text x="200" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Competition" data-fr="Concours">Competition</text>
+        <text x="200" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="for tickets" data-fr="de billets">for tickets</text>
+        <text x="310" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Ticket" data-fr="Précommandes">Ticket</text>
+        <text x="310" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="pre-orders" data-fr="de billets">pre-orders</text>
+        <text x="420" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Artist" data-fr="Coulisses">Artist</text>
+        <text x="420" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="BTS" data-fr="artistes">BTS</text>
+        <text x="500" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Digital" data-fr="Packs">Digital</text>
+        <text x="500" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="packs" data-fr="numériques">packs</text>
+        <text x="600" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Merch pre-" data-fr="Précommandes">Merch pre-</text>
+        <text x="600" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="orders" data-fr="merch">orders</text>
+        <text x="710" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Ticket" data-fr="Upgrades">Ticket</text>
+        <text x="710" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="upgrades" data-fr="billets">upgrades</text>
+        <text x="800" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Sponsored" data-fr="Activations">Sponsored</text>
+        <text x="800" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="activations" data-fr="sponsors">activations</text>
+        <text x="880" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Timed" data-fr="Activations">Timed</text>
+        <text x="880" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="activations" data-fr="minutées">activations</text>
+        <text x="960" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Merch &amp;" data-fr="Merch &amp;">Merch &amp;</text>
+        <text x="960" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Memories" data-fr="Souvenirs">Memories</text>
+        <text x="1060" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Recap" data-fr="Défi">Recap</text>
+        <text x="1060" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="challenge" data-fr="récap">challenge</text>
+        <text x="1150" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Next year" data-fr="Précommandes">Next year</text>
+        <text x="1150" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="pre-orders" data-fr="année suivante">pre-orders</text>
+        <text x="1260" y="265" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="Competition" data-fr="Concours">Competition</text>
+        <text x="1260" y="277" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="10" data-en="for tickets" data-fr="de billets">for tickets</text>
         </g>
 
         <!-- PHASE LABELS — single Before / During / After track -->
@@ -2196,17 +2196,17 @@ body.present-mode #present-arrows { display:flex !important; }
         <circle cx="657" cy="300" r="2.5" fill="rgba(255,255,255,0.25)"/>
         <circle cx="1010" cy="300" r="2.5" fill="rgba(255,255,255,0.25)"/>
         <path d="M28,291 L636,291 L645,300 L636,309 L28,309 Q24,309,24,305 L24,295 Q24,291,28,291 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
-        <text x="334" y="300" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.78)" font-family="Gilroy,sans-serif" font-size="9.5">Before</text>
+        <text x="334" y="300" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.78)" font-family="Gilroy,sans-serif" font-size="9.5" data-en="Before" data-fr="Avant">Before</text>
         <path d="M673,291 L989,291 L998,300 L989,309 L673,309 Q669,309,669,305 L669,295 Q669,291,673,291 Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
-        <text x="834" y="300" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="9.5">During</text>
+        <text x="834" y="300" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="9.5" data-en="During" data-fr="Pendant">During</text>
         <path d="M1026,291 L1311,291 L1320,300 L1311,309 L1026,309 Q1022,309,1022,305 L1022,295 Q1022,291,1026,291 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
-        <text x="1171" y="300" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.78)" font-family="Gilroy,sans-serif" font-size="9.5">After</text>
+        <text x="1171" y="300" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,0.78)" font-family="Gilroy,sans-serif" font-size="9.5" data-en="After" data-fr="Après">After</text>
 
         <!-- Legend -->
-        <line x1="1191" y1="335" x2="1223" y2="335" stroke="#1FCEFF" stroke-width="2.5"/>
-        <text x="1328" y="339" text-anchor="end" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="11">Magic Engagement</text>
-        <line x1="1169" y1="350" x2="1201" y2="350" stroke="rgba(255,255,255,0.3)" stroke-width="1.8"/>
-        <text x="1328" y="354" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Gilroy,sans-serif" font-size="11" font-style="italic">Traditional Engagement</text>
+        <line id="leg-line-magic" x1="1191" y1="335" x2="1223" y2="335" stroke="#1FCEFF" stroke-width="2.5"/>
+        <text id="leg-text-magic" x="1328" y="339" text-anchor="end" fill="rgba(255,255,255,0.85)" font-family="Gilroy,sans-serif" font-size="11" data-en="Magic Engagement" data-fr="Engagement Magic">Magic Engagement</text>
+        <line id="leg-line-trad" x1="1191" y1="350" x2="1223" y2="350" stroke="rgba(255,255,255,0.3)" stroke-width="1.8"/>
+        <text id="leg-text-trad" x="1328" y="354" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Gilroy,sans-serif" font-size="11" font-style="italic" data-en="Traditional Engagement" data-fr="Engagement traditionnel">Traditional Engagement</text>
         </g>
       </svg>
     </div>
@@ -3252,9 +3252,28 @@ ctrInput.addEventListener('keydown', function(e) {
 });
 ctrInput.addEventListener('blur', commitCtrInput);
 if (params.get('lang') === 'fr') setLang('fr');
+repositionLegendLines();
 go(initialSlide);
 
 /* ── Language Switcher ── */
+function repositionLegendLines() {
+  var pairs = [
+    { text: 'leg-text-magic', line: 'leg-line-magic' },
+    { text: 'leg-text-trad',  line: 'leg-line-trad' }
+  ];
+  pairs.forEach(function(p) {
+    var txt = document.getElementById(p.text);
+    var ln  = document.getElementById(p.line);
+    if (!txt || !ln) return;
+    var tw = txt.getComputedTextLength();
+    var tx = parseFloat(txt.getAttribute('x'));
+    var x2 = tx - tw - 8;
+    var x1 = x2 - 32;
+    ln.setAttribute('x1', x1);
+    ln.setAttribute('x2', x2);
+  });
+}
+
 function setLang(lang) {
   currentLang = lang;
   // Update toggle buttons
@@ -3283,6 +3302,8 @@ function setLang(lang) {
     var text = el.getAttribute('data-' + lang);
     if (text) el.textContent = text;
   });
+  // Reposition legend lines to sit just left of their text
+  repositionLegendLines();
   // Update revenue simulator dynamic labels
   try { recalculate(); } catch(e) {}
   // Persist in URL
