@@ -192,7 +192,8 @@ html, body { width:100%; height:100%; background:var(--bg); font-family:'Gilroy'
 
 /* Typography */
 .tag {
-  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  width:fit-content;
   padding:5px 16px; border-radius:100px; font-size:11px;
   font-weight:600; letter-spacing:0.1em; text-transform:uppercase; text-align:center;
   white-space:nowrap; align-self:flex-start;
@@ -2326,7 +2327,7 @@ body.present-mode #present-arrows { display:flex !important; }
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:60px 80px 88px;">
     <div style="flex-shrink:0;margin-bottom:36px;">
       <span class="tag" data-en="Revenue Impact" data-fr="Impact sur les revenus">Revenue Impact</span>
-      <div style="margin-top:10px;font-family:'Gilroy',sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-0.025em;" data-i18n="html" data-en-html="Increase every <span class='gpu-t'>revenue stream</span>" data-fr-html="Augmentez toutes vos <span class='gpu-t'>sources de revenus</span>">
+      <div style="margin-top:16px;font-family:'Gilroy',sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-0.025em;" data-i18n="html" data-en-html="Increase every <span class='gpu-t'>revenue stream</span>" data-fr-html="Augmentez toutes vos <span class='gpu-t'>sources de revenus</span>">
         Increase every <span class="gpu-t">revenue stream</span>
       </div>
       <p style="margin-top:14px;font-size:20px;line-height:1.65;font-weight:300;color:var(--muted);max-width:760px;" data-en="Magic is built to fuel your festival's success: driving ticket upsells, merch sales, sponsor activation and the fan engagement that keeps attendees coming back edition after edition." data-fr="Magic est conçu pour alimenter le succès de votre festival : stimuler les upsells de billets, les ventes de merch, l'activation des sponsors et l'engagement fan qui fait revenir les festivaliers édition après édition.">
@@ -2377,7 +2378,7 @@ body.present-mode #present-arrows { display:flex !important; }
   <div class="s-bar s-bar-pu"></div><div class="s-logo">✦ Magic</div><div class="s-num">13 / 13</div>
 
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px;text-align:center;">
-    <span class="tag" style="margin-bottom:24px;" data-en="Festival Flywheel" data-fr="Volant Festival">Festival Flywheel</span>
+    <span class="tag" style="margin-bottom:24px;align-self:center;" data-en="Festival Flywheel" data-fr="Volant Festival">Festival Flywheel</span>
     <div style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:56px;line-height:1.05;letter-spacing:-0.025em;max-width:960px;" data-i18n="html" data-en-html="Better fans. Better sponsors.<br><span class='gt'>Better festivals.</span>" data-fr-html="Meilleurs fans. Meilleurs sponsors.<br><span class='gt'>Meilleurs festivals.</span>">
       Better fans. Better sponsors.<br><span class="gt">Better festivals.</span>
     </div>
