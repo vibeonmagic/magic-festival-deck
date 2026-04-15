@@ -1381,6 +1381,9 @@ body.present-mode #present-arrows { display:flex !important; }
     <circle cx="12" cy="14.4" r="4.1" fill="none" stroke="currentColor" stroke-width="1.85"/>
     <path d="m10.4 14.5 1.1 1.1 2.2-2.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
+  <symbol id="ss-i-badge" viewBox="0 0 24 24">
+    <path d="M12 3l2.47 5.01L20 8.94l-4 3.9.94 5.5L12 15.77l-4.94 2.6.94-5.5-4-3.9 5.53-.93L12 3z" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linejoin="round"/>
+  </symbol>
   <symbol id="ss-i-lock" viewBox="0 0 24 24">
     <rect x="7" y="11" width="10" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.85"/>
     <path d="M9 11V8.5a3 3 0 1 1 6 0V11" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round"/>
@@ -1463,9 +1466,9 @@ body.present-mode #present-arrows { display:flex !important; }
 </div>
 </div>
 <!-- ═══════════════════════════════════════
-  S2-OLD — THE PROBLEM (old version for comparison)
+  S2 — THE PROBLEM
 ═══════════════════════════════════════ -->
-<div class="slide" id="s2-old">
+<div class="slide" id="s2">
 <div class="si" style="background:#0D1B42">
   <div style="position:absolute;inset:0;background:#0D1B42;z-index:0;"></div>
   <div class="gl gl-tl" style="z-index:1"></div><div class="gl gl-br" style="z-index:1"></div><div class="grid"></div>
@@ -1529,87 +1532,6 @@ body.present-mode #present-arrows { display:flex !important; }
         <div class="magic-box" style="position:relative;border-radius:20px;padding:2px;animation:takeawayPulse 3s ease-in-out infinite;">
           <div style="position:absolute;inset:0;border-radius:20px;border:2px solid transparent;background:linear-gradient(var(--border-angle,0deg),rgba(31,206,255,0.8),rgba(140,60,255,0.7),rgba(204,43,251,0.8),rgba(31,206,255,0.8)) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:borderShift 8s linear infinite;z-index:2;pointer-events:none;"></div>
           <div style="padding:36px 32px;background:linear-gradient(140deg,rgba(31,206,255,0.08) 0%,rgba(204,43,251,0.14) 100%);border-radius:18px;text-align:center;position:relative;z-index:3;">
-            <div style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:36px;line-height:1.3;" data-i18n="html" data-en-html="Magic<br><span class='gt'>changes that.</span>" data-fr-html="Magic<br><span class='gt'>change la donne.</span>">
-              Magic<br><span class="gt">changes that.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-</div>
-<!-- ═══════════════════════════════════════
-  S2 — THE PROBLEM
-═══════════════════════════════════════ -->
-<div class="slide" id="s2-problem">
-<div class="si" style="background:#0D1B42">
-  <div style="position:absolute;inset:0;background:#0D1B42;z-index:0;"></div>
-  <div class="gl gl-tl" style="z-index:1"></div><div class="gl gl-br" style="z-index:1"></div><div class="grid"></div>
-  <div class="s-bar s-bar-pu"></div><div class="s-logo">✦ Magic</div><div class="s-num">03 / 13</div>
-
-  <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:60px 80px 52px;z-index:2;">
-
-    <div style="flex-shrink:0;margin-bottom:0;">
-      <span class="tag" spellcheck="false" data-en="Festivals today" data-fr="Les festivals aujourd'hui">Festivals today</span>
-      <div style="margin-top:16px;font-family:'Gilroy',sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-0.025em;color:#fff;" spellcheck="false" data-i18n="html" data-en-html="A year of effort.<br><span class='gt'>Just a few days of return.</span>" data-fr-html="Une année d'effort.<br><span class='gt'>Quelques jours de retour seulement.</span>">
-        A year of effort.<br><span class="gt">Just a few days of return.</span>
-      </div>
-      <p style="margin-top:16px;font-size:20px;line-height:1.65;font-weight:300;color:var(--muted);max-width:820px;" data-i18n="html" data-en-html="Festivals are a year-round effort, but the payoffs are limited to a few peaks,<br>with little to no momentum from one edition to the next." data-fr-html="Les festivals demandent un effort continu, mais les retombées se limitent à quelques pics,<br>sans élan d'une édition à l'autre.">Festivals are a year-round effort, but the payoffs are limited to a few peaks,<br>with little to no momentum from one edition to the next.</p>
-    </div>
-
-    <!-- Pain point rows + punchline -->
-    <div style="flex:1;display:flex;gap:60px;align-items:center;padding-top:28px;">
-      <!-- Rows (left) -->
-      <div style="flex:0 1 580px;display:flex;flex-direction:column;gap:0;">
-        <!-- Row 1 -->
-        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;">
-          <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </div>
-          <div style="font-size:20px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.3;" data-en="Online momentum fades between editions" data-fr="L'élan en ligne s'estompe entre les éditions">Online momentum fades between editions</div>
-        </div>
-        <div style="height:1px;background:rgba(255,255,255,0.06);margin-left:68px;margin-right:60%;"></div>
-        <!-- Row 2 -->
-        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;">
-          <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </div>
-          <div style="font-size:20px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.3;" data-en="Minimal income outside of peak moments" data-fr="Revenus minimaux en dehors des pics d'activité">Minimal income outside of peak moments</div>
-        </div>
-        <div style="height:1px;background:rgba(255,255,255,0.06);margin-left:68px;margin-right:60%;"></div>
-        <!-- Row 3 -->
-        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;">
-          <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </div>
-          <div style="font-size:20px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.3;" data-en="Fans leave your festival without a data-trail" data-fr="Les fans quittent votre festival sans laisser de trace">Fans leave your festival without a data-trail</div>
-        </div>
-        <div style="height:1px;background:rgba(255,255,255,0.06);margin-left:68px;margin-right:60%;"></div>
-        <!-- Row 4 -->
-        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;">
-          <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </div>
-          <div style="font-size:20px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.3;" data-en="Loyal fans indistinguishable from first-timers" data-fr="Les fans fidèles impossibles à distinguer des nouveaux">Loyal fans indistinguishable from first-timers</div>
-        </div>
-        <div style="height:1px;background:rgba(255,255,255,0.06);margin-left:68px;margin-right:60%;"></div>
-        <!-- Row 5 -->
-        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;">
-          <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </div>
-          <div style="font-size:20px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.3;" data-en="The relationship ends at checkout" data-fr="La relation s'arrête au moment de l'achat">The relationship ends at checkout</div>
-        </div>
-      </div>
-      <!-- Gradient divider -->
-      <div style="flex-shrink:0;width:2px;height:60%;border-radius:1px;background:linear-gradient(to bottom,rgba(31,206,255,0.5),rgba(140,60,255,0.4),rgba(204,43,251,0.5));"></div>
-      <!-- Punchline (right) -->
-      <div style="flex-shrink:0;display:flex;align-items:center;margin-right:-40px;">
-        <div class="magic-box" style="position:relative;border-radius:20px;padding:2px;animation:takeawayPulse 3s ease-in-out infinite;">
-          <div style="position:absolute;inset:0;border-radius:20px;border:2px solid transparent;background:linear-gradient(var(--border-angle,0deg),rgba(31,206,255,0.8),rgba(140,60,255,0.7),rgba(204,43,251,0.8),rgba(31,206,255,0.8)) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:borderShift 8s linear infinite;z-index:2;pointer-events:none;"></div>
-          <div style="padding:80px 60px;background:linear-gradient(140deg,rgba(31,206,255,0.08) 0%,rgba(204,43,251,0.14) 100%);border-radius:18px;text-align:center;position:relative;z-index:3;">
             <div style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:36px;line-height:1.3;" data-i18n="html" data-en-html="Magic<br><span class='gt'>changes that.</span>" data-fr-html="Magic<br><span class='gt'>change la donne.</span>">
               Magic<br><span class="gt">changes that.</span>
             </div>
@@ -1764,9 +1686,9 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-185px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:42px;height:42px;background:#0f7a5a;box-shadow:0 0 12px 6px rgba(15,122,90,0.45),0 0 28px 12px rgba(15,122,90,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-calendar"></use></svg></div>
+                <div class="ss-planet" style="width:42px;height:42px;background:#0f7a5a;box-shadow:0 0 12px 6px rgba(15,122,90,0.45),0 0 28px 12px rgba(15,122,90,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-badge"></use></svg></div>
               </div>
-              <div class="ss-plabel" data-en="Events" data-fr="Événements">Events</div>
+              <div class="ss-plabel" data-en="Collectibles" data-fr="Collectibles">Collectibles</div>
             </div>
           </div>
         </div>
@@ -2085,6 +2007,65 @@ body.present-mode #present-arrows { display:flex !important; }
 </div>
 
 <!-- ═══════════════════════════════════════
+  S6 — THE CONNECTED FESTIVAL EXPERIENCE
+═══════════════════════════════════════ -->
+<div class="slide" id="s6">
+<div class="si" style="background:#0D1B42">
+  <div style="position:absolute;inset:0;background:#0D1B42;z-index:0;"></div>
+  <div class="gl gl-tl" style="z-index:1"></div><div class="gl gl-br" style="z-index:1"></div><div class="grid"></div>
+  <div class="s-bar s-bar-pu"></div><div class="s-logo">✦ Magic</div><div class="s-num">07 / 13</div>
+
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:40px 80px 40px;z-index:2;">
+
+    <div style="flex-shrink:0;">
+      <span class="tag" data-en="Experience library" data-fr="Bibliothèque d'expériences">Experience library</span>
+      <div style="margin-top:16px;font-family:'Gilroy',sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-0.025em;color:#fff;" data-i18n="html" data-en-html="The connected <span class='gt'>festival experience</span>" data-fr-html="L'expérience festival <span class='gt'>connectée</span>">
+        The connected <span class="gt">festival experience</span>
+      </div>
+      <p style="margin-top:16px;font-size:20px;line-height:1.65;font-weight:300;color:var(--muted);max-width:820px;" data-en="Our library of plug-and-play experiences blends digital and real-world moments that are measurable, repeatable and easy to activate, at every stage of the festival journey." data-fr="Notre bibliothèque d'expériences prêtes à l'emploi fusionne moments digitaux et réels, mesurables, reproductibles et faciles à activer, à chaque étape du parcours festival.">
+        Our library of plug-and-play experiences blends digital and real-world moments that are measurable, repeatable and easy to activate, at every stage of the festival journey.
+      </p>
+    </div>
+
+    <!-- 4 experience cards -->
+    <div style="display:flex;gap:24px;padding-top:36px;">
+      <!-- Card 1 -->
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+        <div style="aspect-ratio:4/3;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <img src="brand elements/Magic brand images copy/Card 1.png" alt="Scan & Discover" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" onerror="this.style.display='none'">
+        </div>
+        <div>
+          <div style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:22px;color:#fff;" data-en="Scan & Discover" data-fr="Scanner et Découvrir">Scan & Discover</div>
+          <div style="font-size:16px;font-weight:300;color:var(--muted);margin-top:6px;" data-en="Fans scan posters, wristbands and real-world objects across the festival to unlock exclusive artist content, secret set times and backstage moments." data-fr="Les fans scannent affiches, bracelets et objets à travers le festival pour débloquer du contenu artiste exclusif, des horaires secrets et des moments backstage.">Fans scan posters, wristbands and real-world objects across the festival to unlock exclusive artist content, secret set times and backstage moments.</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+        <div style="aspect-ratio:4/3;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <img src="brand elements/Magic brand images copy/Card 2.png" alt="Festival Treasure Hunt" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" onerror="this.style.display='none'">
+        </div>
+        <div>
+          <div style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:22px;color:#fff;" data-en="Festival Treasure Hunt" data-fr="Chasse au Trésor Festival">Festival Treasure Hunt</div>
+          <div style="font-size:16px;font-weight:300;color:var(--muted);margin-top:6px;" data-en="A geolocation quest across the festival grounds. Each stop unlocks a collectible Discovery Card — complete the hunt to access exclusive rewards and VIP experiences." data-fr="Une quête géolocalisée à travers le site du festival. Chaque étape débloque une carte Découverte — terminez la chasse pour accéder à des récompenses exclusives et des expériences VIP.">A geolocation quest across the festival grounds. Each stop unlocks a collectible Discovery Card — complete the hunt to access exclusive rewards and VIP experiences.</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+        <div style="aspect-ratio:4/3;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <img src="brand elements/Magic brand images copy/Card 3.png" alt="Sponsor Collectibles" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" onerror="this.style.display='none'">
+        </div>
+        <div>
+          <div style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:22px;color:#fff;" data-en="Sponsor Collectibles" data-fr="Collectibles Sponsors">Sponsor Collectibles</div>
+          <div style="font-size:16px;font-weight:300;color:var(--muted);margin-top:6px;" data-en="Every sponsor activation becomes a scannable, collectible digital creature. Fans scan branded installations, merch and activations to collect, level up and compete." data-fr="Chaque activation sponsor devient une créature digitale collectionnable. Les fans scannent les installations, le merch et les activations pour collecter, progresser et rivaliser.">Every sponsor activation becomes a scannable, collectible digital creature. Fans scan branded installations, merch and activations to collect, level up and compete.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════
   S5 — A REASON TO RETURN EVERY DAY
 ═══════════════════════════════════════ -->
 <div class="slide" id="s5">
@@ -2094,12 +2075,12 @@ body.present-mode #present-arrows { display:flex !important; }
 
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:60px 72px 56px;">
     <div style="flex-shrink:0;margin-bottom:28px;">
-      <span class="tag" data-en="Gamification" data-fr="Gamification">Gamification</span>
-      <div style="margin-top:16px;font-family:'Gilroy',sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-0.025em;" data-i18n="html" data-en-html="A reason to return <span class='gt'>every day</span>" data-fr-html="Une raison de revenir <span class='gt'>chaque jour</span>">
-        A reason to return <span class="gt">every day</span>
+      <span class="tag" data-en="Always on" data-fr="Toujours actif">Always on</span>
+      <div style="margin-top:16px;font-family:'Gilroy',sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-0.025em;" data-i18n="html" data-en-html="Keep them coming back <span class='gt'>between editions</span>" data-fr-html="Faites-les revenir <span class='gt'>entre les éditions</span>">
+        Keep them coming back <span class="gt">between editions</span>
       </div>
-      <p style="margin-top:14px;font-size:20px;line-height:1.65;font-weight:300;color:var(--muted);max-width:700px;" data-en="Your Fanverse is built by gaming experts to give fans a reason to show up every day, not just the days your gates are open." data-fr="Conçu par des experts du gaming pour donner aux fans une raison d'être là chaque jour, pas seulement quand vos portes sont ouvertes.">
-        Your Fanverse is built by gaming experts to give fans a reason to show up every day, not just the days your gates are open.
+      <p style="margin-top:14px;font-size:20px;line-height:1.65;font-weight:300;color:var(--muted);max-width:920px;" data-en="Magic keeps your festival alive year-round with exclusive artist content, gamified rewards, fan chat and a built-in store, turning weekend attendees into a loyal community between editions." data-fr="Magic maintient votre festival en vie toute l'année grâce à du contenu artiste exclusif, des récompenses gamifiées, un chat fan et une boutique intégrée, transformant les festivaliers en une communauté fidèle entre les éditions.">
+        Magic keeps your festival alive year-round with exclusive artist content, gamified rewards, fan chat and a built-in store, turning weekend attendees into a loyal community between editions.
       </p>
     </div>
     <!-- 4 feature panels -->
