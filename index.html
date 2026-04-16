@@ -1227,8 +1227,8 @@ body.design-mode .slide * { user-select:none; }
   cursor:move;
 }
 
-/* Mobile portrait — vertical scroll, slides stacked */
-@media screen and (max-width: 768px) and (orientation: portrait) {
+/* Mobile — vertical scroll, slides stacked */
+@media screen and (max-width: 768px) {
   html, body { overflow-y:auto !important; overflow-x:hidden !important; height:auto !important; }
   #shell { position:static !important; overflow:visible !important; min-height:100vh; }
   #stage {
@@ -3111,8 +3111,8 @@ applySavedLayout();
 applyFanverseMode();
 
 /* ── Mobile helpers ── */
-function isMobilePortrait() {
-  return window.innerWidth <= 768 && window.innerHeight > window.innerWidth;
+function isMobile() {
+  return window.innerWidth <= 768;
 }
 
 /* ── Mobile: swipe navigation (landscape only) ── */
@@ -3124,7 +3124,7 @@ function isMobilePortrait() {
     touchStartTime = Date.now();
   }, { passive: true });
   document.addEventListener('touchend', function(e) {
-    if (isMobilePortrait()) return; /* scroll-snap handles portrait */
+    if (isMobile()) return; /* scroll-snap handles portrait */
     var dx = e.changedTouches[0].clientX - touchStartX;
     var dy = e.changedTouches[0].clientY - touchStartY;
     var dt = Date.now() - touchStartTime;
@@ -3134,24 +3134,24 @@ function isMobilePortrait() {
 })();
 
 /* ── Mobile: prevent pinch zoom (not in portrait scroll mode) ── */
-document.addEventListener('gesturestart', function(e) { if (!isMobilePortrait()) e.preventDefault(); });
+document.addEventListener('gesturestart', function(e) { if (!isMobile()) e.preventDefault(); });
 document.addEventListener('touchmove', function(e) {
-  if (!isMobilePortrait() && e.touches.length > 1) e.preventDefault();
+  if (!isMobile() && e.touches.length > 1) e.preventDefault();
 }, { passive: false });
 
 /* ── Mobile: rescale on orientation change ── */
 window.addEventListener('orientationchange', function() {
   setTimeout(function() {
-    if (!isMobilePortrait()) scheduleScale();
+    if (!isMobile()) scheduleScale();
   }, 150);
   setTimeout(function() {
-    if (!isMobilePortrait()) scheduleScale();
+    if (!isMobile()) scheduleScale();
   }, 500);
 });
 
 /* ── Mobile portrait: scale .si elements to fit width ── */
 function scaleMobileSlides() {
-  if (!isMobilePortrait()) return;
+  if (!isMobile()) return;
   var s = window.innerWidth / 1484;
   document.querySelectorAll('.slide .si').forEach(function(si) {
     si.style.transform = 'scale(' + s + ')';
@@ -3161,7 +3161,7 @@ function scaleMobileSlides() {
 
 var _origScale = scale;
 scale = function() {
-  if (isMobilePortrait()) {
+  if (isMobile()) {
     scaleMobileSlides();
     return;
   }
@@ -3201,8 +3201,8 @@ scale = function() {
 })();
 
 /* Run on load */
-if (isMobilePortrait()) scaleMobileSlides();
-window.addEventListener('resize', function() { if (isMobilePortrait()) scaleMobileSlides(); });
+if (isMobile()) scaleMobileSlides();
+window.addEventListener('resize', function() { if (isMobile()) scaleMobileSlides(); });
 
 /* ── Mobile: exit fullscreen by tapping top-left corner ── */
 document.addEventListener('touchend', function(e) {
