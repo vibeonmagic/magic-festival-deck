@@ -1249,10 +1249,15 @@ body.design-mode .slide * { user-select:none; }
     overflow:hidden !important; display:block !important;
     margin-bottom:4px !important;
   }
-  .slide .si {
+  .slide .si, .slide > div:first-child {
     position:absolute !important; top:0 !important; left:0 !important;
     width:1484px !important; height:812px !important;
     transform-origin:top left !important;
+  }
+  /* Disable animations on mobile to prevent jank */
+  *, *::before, *::after {
+    animation:none !important;
+    transition:none !important;
   }
   #nav { display:none !important; }
   #present-arrows { display:none !important; }
