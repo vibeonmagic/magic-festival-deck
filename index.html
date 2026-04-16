@@ -1227,6 +1227,40 @@ body.design-mode .slide * { user-select:none; }
   cursor:move;
 }
 
+/* Mobile portrait — vertical scroll, slides stacked */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  html, body { overflow-y:auto !important; overflow-x:hidden !important; height:auto !important; }
+  #shell { position:static !important; overflow:visible !important; min-height:100vh; }
+  #stage {
+    display:block !important; overflow:visible !important;
+    height:auto !important; padding:0 !important;
+  }
+  #scaler {
+    width:100% !important; height:auto !important;
+    transform:none !important; position:relative !important;
+    display:block !important; overflow:visible !important;
+  }
+  .slide {
+    position:relative !important; opacity:1 !important;
+    pointer-events:auto !important;
+    width:100% !important; height:auto !important;
+    aspect-ratio:1484/812 !important;
+    transition:none !important; border-radius:0 !important;
+    overflow:hidden !important; display:block !important;
+    margin-bottom:4px !important;
+  }
+  .slide .si {
+    position:absolute !important; top:0 !important; left:0 !important;
+    width:1484px !important; height:812px !important;
+    transform-origin:top left !important;
+  }
+  #nav { display:none !important; }
+  #present-arrows { display:none !important; }
+  #mobile-fs-exit { display:none !important; }
+  #fs-toast { display:none !important; }
+  #progress { display:none !important; }
+}
+
 /* Print / PDF export */
 @media print {
   html,body { overflow:visible; background:#0D1B42 !important; }
@@ -3039,7 +3073,12 @@ applySavedEdits();
 applySavedLayout();
 applyFanverseMode();
 
-/* ── Mobile: swipe navigation ── */
+/* ── Mobile helpers ── */
+function isMobilePortrait() {
+  return window.innerWidth <= 768 && window.innerHeight > window.innerWidth;
+}
+
+/* ── Mobile: swipe navigation (landscape only) ── */
 (function() {
   var touchStartX = 0, touchStartY = 0, touchStartTime = 0;
   document.addEventListener('touchstart', function(e) {
@@ -3048,6 +3087,7 @@ applyFanverseMode();
     touchStartTime = Date.now();
   }, { passive: true });
   document.addEventListener('touchend', function(e) {
+    if (isMobilePortrait()) return; /* scroll-snap handles portrait */
     var dx = e.changedTouches[0].clientX - touchStartX;
     var dy = e.changedTouches[0].clientY - touchStartY;
     var dt = Date.now() - touchStartTime;
@@ -3056,17 +3096,48 @@ applyFanverseMode();
   }, { passive: true });
 })();
 
-/* ── Mobile: prevent pinch zoom on the deck ── */
-document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+/* ── Mobile: prevent pinch zoom (not in portrait scroll mode) ── */
+document.addEventListener('gesturestart', function(e) { if (!isMobilePortrait()) e.preventDefault(); });
 document.addEventListener('touchmove', function(e) {
-  if (e.touches.length > 1) e.preventDefault();
+  if (!isMobilePortrait() && e.touches.length > 1) e.preventDefault();
 }, { passive: false });
 
 /* ── Mobile: rescale on orientation change ── */
 window.addEventListener('orientationchange', function() {
-  setTimeout(scheduleScale, 150);
-  setTimeout(scheduleScale, 500);
+  setTimeout(function() {
+    if (!isMobilePortrait()) scheduleScale();
+  }, 150);
+  setTimeout(function() {
+    if (!isMobilePortrait()) scheduleScale();
+  }, 500);
 });
+
+/* ── Mobile portrait: scale .si elements to fit width ── */
+function scaleMobileSlides() {
+  if (!isMobilePortrait()) return;
+  var s = window.innerWidth / 1484;
+  document.querySelectorAll('.slide .si').forEach(function(si) {
+    si.style.transform = 'scale(' + s + ')';
+  });
+  scaler.style.transform = 'none';
+}
+
+var _origScale = scale;
+scale = function() {
+  if (isMobilePortrait()) {
+    scaleMobileSlides();
+    return;
+  }
+  /* Restore .si transforms for desktop */
+  document.querySelectorAll('.slide .si').forEach(function(si) {
+    si.style.transform = '';
+  });
+  _origScale();
+};
+
+/* Run on load */
+if (isMobilePortrait()) scaleMobileSlides();
+window.addEventListener('resize', function() { if (isMobilePortrait()) scaleMobileSlides(); });
 
 /* ── Mobile: exit fullscreen by tapping top-left corner ── */
 document.addEventListener('touchend', function(e) {
