@@ -1227,77 +1227,80 @@ body.design-mode .slide * { user-select:none; }
   cursor:move;
 }
 
-/* Mobile — vertical scroll, slides stacked */
+/* Scroll mode — vertical scroll, slides stacked (shared by mobile + client mode) */
+body.scroll-mode, body.scroll-mode html { overflow-y:auto !important; overflow-x:hidden !important; height:auto !important; }
+body.scroll-mode #shell { position:static !important; overflow:visible !important; min-height:100vh; }
+body.scroll-mode #stage {
+  display:block !important; overflow:visible !important;
+  height:auto !important; padding:0 !important;
+}
+body.scroll-mode #scaler {
+  width:100% !important; height:auto !important;
+  transform:none !important; position:relative !important;
+  display:block !important; overflow:visible !important;
+}
+body.scroll-mode .slide {
+  position:relative !important; opacity:1 !important;
+  pointer-events:auto !important;
+  width:100% !important; height:auto !important;
+  aspect-ratio:1484/812 !important;
+  transition:none !important; border-radius:0 !important;
+  overflow:hidden !important; display:block !important;
+  margin-bottom:4px !important;
+}
+body.scroll-mode .slide .si, body.scroll-mode .slide > div:first-child {
+  position:absolute !important; top:0 !important; left:0 !important;
+  width:1484px !important; height:812px !important;
+  transform-origin:top left !important;
+}
+/* GPU-accelerate animated elements in scroll mode */
+body.scroll-mode .magic-box, body.scroll-mode .magic-box * {
+  will-change:transform, box-shadow;
+  transform:translateZ(0); -webkit-transform:translateZ(0);
+}
+body.scroll-mode .slide .si {
+  will-change:transform; -webkit-backface-visibility:hidden; backface-visibility:hidden;
+}
+body.scroll-mode #nav { display:none !important; }
+body.scroll-mode #present-arrows { display:none !important; }
+body.scroll-mode #mobile-fs-exit { display:none !important; }
+body.scroll-mode #fs-toast { display:none !important; }
+body.scroll-mode #progress { display:none !important; }
+
+/* Client mode on desktop — constrain width, center slides */
+body.scroll-mode.client-mode .slide {
+  max-width:1200px !important; margin-left:auto !important; margin-right:auto !important;
+  margin-bottom:8px !important; border-radius:6px !important;
+}
+/* Hide language bar in client mode (language is locked) */
+body.client-mode #mobile-tap-zone { display:none !important; }
+body.client-mode #mobile-lang-bar { display:none !important; }
+
+/* Mobile auto-scroll — apply scroll-mode automatically */
 @media screen and (max-width: 768px) {
-  html, body { overflow-y:auto !important; overflow-x:hidden !important; height:auto !important; }
+  body { overflow-y:auto !important; overflow-x:hidden !important; height:auto !important; }
   #shell { position:static !important; overflow:visible !important; min-height:100vh; }
-  #stage {
-    display:block !important; overflow:visible !important;
-    height:auto !important; padding:0 !important;
-  }
-  #scaler {
-    width:100% !important; height:auto !important;
-    transform:none !important; position:relative !important;
-    display:block !important; overflow:visible !important;
-  }
-  .slide {
-    position:relative !important; opacity:1 !important;
-    pointer-events:auto !important;
-    width:100% !important; height:auto !important;
-    aspect-ratio:1484/812 !important;
-    transition:none !important; border-radius:0 !important;
-    overflow:hidden !important; display:block !important;
-    margin-bottom:4px !important;
-  }
-  .slide .si, .slide > div:first-child {
-    position:absolute !important; top:0 !important; left:0 !important;
-    width:1484px !important; height:812px !important;
-    transform-origin:top left !important;
-  }
-  /* GPU-accelerate animated elements to prevent scroll jank */
-  .magic-box, .magic-box * {
-    will-change:transform, box-shadow;
-    transform:translateZ(0);
-    -webkit-transform:translateZ(0);
-  }
-  .slide .si {
-    will-change:transform;
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
-  }
+  #stage { display:block !important; overflow:visible !important; height:auto !important; padding:0 !important; }
+  #scaler { width:100% !important; height:auto !important; transform:none !important; position:relative !important; display:block !important; overflow:visible !important; }
+  .slide { position:relative !important; opacity:1 !important; pointer-events:auto !important; width:100% !important; height:auto !important; aspect-ratio:1484/812 !important; transition:none !important; border-radius:0 !important; overflow:hidden !important; display:block !important; margin-bottom:4px !important; }
+  .slide .si, .slide > div:first-child { position:absolute !important; top:0 !important; left:0 !important; width:1484px !important; height:812px !important; transform-origin:top left !important; }
+  .magic-box, .magic-box * { will-change:transform, box-shadow; transform:translateZ(0); -webkit-transform:translateZ(0); }
+  .slide .si { will-change:transform; -webkit-backface-visibility:hidden; backface-visibility:hidden; }
   #nav { display:none !important; }
-  #present-arrows { display:none !important; }
-  #mobile-fs-exit { display:none !important; }
-  #fs-toast { display:none !important; }
-  #progress { display:none !important; }
-  /* Tap zone at top to reveal lang bar */
-  #mobile-tap-zone {
-    display:block !important; position:fixed; top:0; left:0; right:0;
-    height:48px; z-index:800; cursor:pointer;
-  }
+  #present-arrows, #mobile-fs-exit, #fs-toast, #progress { display:none !important; }
+  /* Tap zone for lang bar on mobile (not in client mode) */
+  #mobile-tap-zone { display:block !important; position:fixed; top:0; left:0; right:0; height:48px; z-index:800; cursor:pointer; }
   #mobile-lang-bar {
-    display:flex !important; position:fixed; top:0; left:0; right:0;
-    height:44px; z-index:801;
+    display:flex !important; position:fixed; top:0; left:0; right:0; height:44px; z-index:801;
     background:rgba(5,9,26,0.85); backdrop-filter:blur(12px);
-    align-items:center; justify-content:space-between;
-    padding:0 20px;
+    align-items:center; justify-content:space-between; padding:0 20px;
     transform:translateY(-100%); transition:transform 0.3s ease;
   }
   #mobile-lang-bar.visible { transform:translateY(0); }
-  #mobile-lang-bar .mlb-title {
-    font-family:'Gilroy',sans-serif; font-size:13px; font-weight:600;
-    color:rgba(255,255,255,0.6); letter-spacing:0.03em;
-  }
+  #mobile-lang-bar .mlb-title { font-family:'Gilroy',sans-serif; font-size:13px; font-weight:600; color:rgba(255,255,255,0.6); letter-spacing:0.03em; }
   #mobile-lang-bar .mlb-btns { display:flex; gap:4px; }
-  #mobile-lang-bar .mlb-btn {
-    padding:6px 14px; border:none; border-radius:6px;
-    font-family:'Gilroy',sans-serif; font-size:12px; font-weight:700;
-    letter-spacing:0.06em; cursor:pointer;
-    background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4);
-  }
-  #mobile-lang-bar .mlb-btn.active {
-    background:rgba(31,206,255,0.15); color:rgba(31,206,255,0.9);
-  }
+  #mobile-lang-bar .mlb-btn { padding:6px 14px; border:none; border-radius:6px; font-family:'Gilroy',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.06em; cursor:pointer; background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4); }
+  #mobile-lang-bar .mlb-btn.active { background:rgba(31,206,255,0.15); color:rgba(31,206,255,0.9); }
 }
 
 /* Print / PDF export */
@@ -2374,6 +2377,17 @@ window.addEventListener('resize', function() {
   scaler.style.transform = 'scale(' + s + ')';
 });
 
+/* ── URL parameter detection ── */
+var urlParams = new URLSearchParams(window.location.search);
+var clientMode = urlParams.has('lang');
+var urlLang = urlParams.get('lang');
+if (clientMode && urlLang !== 'en' && urlLang !== 'fr') { urlLang = 'en'; }
+
+/* Apply scroll + client mode classes */
+if (clientMode) {
+  document.body.classList.add('scroll-mode', 'client-mode');
+}
+
 let cur = 0;
 const slides = Array.from(document.querySelectorAll('.slide'));
 const dotsWrap = document.getElementById('dots');
@@ -3170,9 +3184,14 @@ window.addEventListener('orientationchange', function() {
 });
 
 /* ── Mobile portrait: scale .si elements to fit width ── */
-function scaleMobileSlides() {
-  if (!isMobile()) return;
-  var s = window.innerWidth / 1484;
+function isScrollMode() {
+  return isMobile() || clientMode;
+}
+
+function scaleScrollSlides() {
+  if (!isScrollMode()) return;
+  var maxW = clientMode && window.innerWidth > 768 ? Math.min(window.innerWidth, 1200) : window.innerWidth;
+  var s = maxW / 1484;
   document.querySelectorAll('.slide .si').forEach(function(si) {
     si.style.transform = 'scale(' + s + ')';
   });
@@ -3181,11 +3200,11 @@ function scaleMobileSlides() {
 
 var _origScale = scale;
 scale = function() {
-  if (isMobile()) {
-    scaleMobileSlides();
+  if (isScrollMode()) {
+    scaleScrollSlides();
     return;
   }
-  /* Restore .si transforms for desktop */
+  /* Restore .si transforms for desktop presentation */
   document.querySelectorAll('.slide .si').forEach(function(si) {
     si.style.transform = '';
   });
@@ -3221,8 +3240,13 @@ scale = function() {
 })();
 
 /* Run on load */
-if (isMobile()) scaleMobileSlides();
-window.addEventListener('resize', function() { if (isMobile()) scaleMobileSlides(); });
+if (isScrollMode()) scaleScrollSlides();
+window.addEventListener('resize', function() { if (isScrollMode()) scaleScrollSlides(); });
+
+/* ── Client mode: set language on load ── */
+if (clientMode && urlLang) {
+  setTimeout(function() { setLang(urlLang); }, 50);
+}
 
 /* ── Mobile: exit fullscreen by tapping top-left corner ── */
 document.addEventListener('touchend', function(e) {
