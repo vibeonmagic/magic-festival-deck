@@ -1259,6 +1259,34 @@ body.design-mode .slide * { user-select:none; }
   #mobile-fs-exit { display:none !important; }
   #fs-toast { display:none !important; }
   #progress { display:none !important; }
+  /* Tap zone at top to reveal lang bar */
+  #mobile-tap-zone {
+    display:block !important; position:fixed; top:0; left:0; right:0;
+    height:48px; z-index:800; cursor:pointer;
+  }
+  #mobile-lang-bar {
+    display:flex !important; position:fixed; top:0; left:0; right:0;
+    height:44px; z-index:801;
+    background:rgba(5,9,26,0.85); backdrop-filter:blur(12px);
+    align-items:center; justify-content:space-between;
+    padding:0 20px;
+    transform:translateY(-100%); transition:transform 0.3s ease;
+  }
+  #mobile-lang-bar.visible { transform:translateY(0); }
+  #mobile-lang-bar .mlb-title {
+    font-family:'Gilroy',sans-serif; font-size:13px; font-weight:600;
+    color:rgba(255,255,255,0.6); letter-spacing:0.03em;
+  }
+  #mobile-lang-bar .mlb-btns { display:flex; gap:4px; }
+  #mobile-lang-bar .mlb-btn {
+    padding:6px 14px; border:none; border-radius:6px;
+    font-family:'Gilroy',sans-serif; font-size:12px; font-weight:700;
+    letter-spacing:0.06em; cursor:pointer;
+    background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.4);
+  }
+  #mobile-lang-bar .mlb-btn.active {
+    background:rgba(31,206,255,0.15); color:rgba(31,206,255,0.9);
+  }
 }
 
 /* Print / PDF export */
@@ -2305,6 +2333,15 @@ body.present-mode #present-arrows { display:flex !important; }
 </div>
 
 <div id="fs-toast" data-en="Press ESC to exit full screen" data-fr="Appuyez sur ESC pour quitter le plein écran"></div>
+<!-- Mobile language bar -->
+<div id="mobile-tap-zone" style="display:none;"></div>
+<div id="mobile-lang-bar" style="display:none;">
+  <span class="mlb-title">✦ Magic — For Festivals</span>
+  <div class="mlb-btns">
+    <button class="mlb-btn active" id="mlb-en">EN</button>
+    <button class="mlb-btn" id="mlb-fr">FR</button>
+  </div>
+</div>
 </div><!-- /shell -->
 
 <script>
@@ -3134,6 +3171,34 @@ scale = function() {
   });
   _origScale();
 };
+
+/* ── Mobile: tap-to-reveal language bar ── */
+(function() {
+  var tapZone = document.getElementById('mobile-tap-zone');
+  var langBar = document.getElementById('mobile-lang-bar');
+  var hideTimer = null;
+  function showBar() {
+    langBar.classList.add('visible');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function() { langBar.classList.remove('visible'); }, 3000);
+  }
+  function hideBar() { langBar.classList.remove('visible'); clearTimeout(hideTimer); }
+  tapZone.addEventListener('click', function() {
+    if (langBar.classList.contains('visible')) hideBar(); else showBar();
+  });
+  document.getElementById('mlb-en').addEventListener('click', function() {
+    setLang('en');
+    document.getElementById('mlb-en').classList.add('active');
+    document.getElementById('mlb-fr').classList.remove('active');
+    showBar();
+  });
+  document.getElementById('mlb-fr').addEventListener('click', function() {
+    setLang('fr');
+    document.getElementById('mlb-fr').classList.add('active');
+    document.getElementById('mlb-en').classList.remove('active');
+    showBar();
+  });
+})();
 
 /* Run on load */
 if (isMobilePortrait()) scaleMobileSlides();
