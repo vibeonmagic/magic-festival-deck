@@ -1254,10 +1254,16 @@ body.design-mode .slide * { user-select:none; }
     width:1484px !important; height:812px !important;
     transform-origin:top left !important;
   }
-  /* Disable animations on mobile to prevent jank */
-  *, *::before, *::after {
-    animation:none !important;
-    transition:none !important;
+  /* GPU-accelerate animated elements to prevent scroll jank */
+  .magic-box, .magic-box * {
+    will-change:transform, box-shadow;
+    transform:translateZ(0);
+    -webkit-transform:translateZ(0);
+  }
+  .slide .si {
+    will-change:transform;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
   }
   #nav { display:none !important; }
   #present-arrows { display:none !important; }
