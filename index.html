@@ -56,7 +56,7 @@
 html, body { width:100%; height:100%; background:var(--bg); font-family:'Gilroy',sans-serif; color:#fff; overflow:hidden; }
 #shell { position:fixed; inset:0; display:flex; flex-direction:column; background:#05091A; }
 #stage { flex:1; display:flex; align-items:center; justify-content:center; overflow:hidden; min-height:0; min-width:0; }
-#scaler { width:1484px; height:812px; flex-shrink:0; transform-origin:center center; position:relative; }
+#scaler { width:1484px; height:812px; flex-shrink:0; transform-origin:center center; position:relative; overflow:hidden; }
 .slide { position:absolute; inset:0; width:1484px; height:812px; opacity:0; pointer-events:none; transition:opacity 0.45s cubic-bezier(.4,0,.2,1); border-radius:3px; overflow:hidden; background:#0D1B42; }
 .slide.active { opacity:1; pointer-events:auto; }
 
