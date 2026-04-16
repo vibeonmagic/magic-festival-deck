@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Magic — Festival Deck</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1285,6 +1285,18 @@ body.export-mode * {
   transition:opacity 0.4s ease;
 }
 #fs-toast.show { opacity:1; }
+
+/* Mobile fullscreen exit button */
+#mobile-fs-exit {
+  display:none;position:fixed;top:16px;right:16px;z-index:700;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.15);
+  backdrop-filter:blur(8px);cursor:pointer;
+  align-items:center;justify-content:center;
+}
+#mobile-fs-exit svg { width:20px;height:20px; }
+body.present-mode #mobile-fs-exit { display:flex; }
+@media (min-width:1024px) { body.present-mode #mobile-fs-exit { display:none; } }
 
 /* Present mode — hides nav, fills viewport */
 body.present-mode #nav { display:none !important; }
@@ -3026,6 +3038,45 @@ document.addEventListener('keydown', e => {
 applySavedEdits();
 applySavedLayout();
 applyFanverseMode();
+
+/* ── Mobile: swipe navigation ── */
+(function() {
+  var touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+  document.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
+  }, { passive: true });
+  document.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    var dt = Date.now() - touchStartTime;
+    if (dt > 500 || Math.abs(dx) < 40 || Math.abs(dy) > Math.abs(dx)) return;
+    if (dx < 0) next(); else prev();
+  }, { passive: true });
+})();
+
+/* ── Mobile: prevent pinch zoom on the deck ── */
+document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+document.addEventListener('touchmove', function(e) {
+  if (e.touches.length > 1) e.preventDefault();
+}, { passive: false });
+
+/* ── Mobile: rescale on orientation change ── */
+window.addEventListener('orientationchange', function() {
+  setTimeout(scheduleScale, 150);
+  setTimeout(scheduleScale, 500);
+});
+
+/* ── Mobile: exit fullscreen by tapping top-left corner ── */
+document.addEventListener('touchend', function(e) {
+  if (!document.fullscreenElement) return;
+  var x = e.changedTouches[0].clientX;
+  var y = e.changedTouches[0].clientY;
+  if (x < 60 && y < 60) {
+    document.exitFullscreen();
+  }
+});
 updateUndoUi();
 document.getElementById('lang-en').addEventListener('click', function() { setLang('en'); });
 document.getElementById('lang-fr').addEventListener('click', function() { setLang('fr'); });
