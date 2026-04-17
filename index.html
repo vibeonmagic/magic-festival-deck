@@ -1560,7 +1560,7 @@ body.present-mode #present-arrows { display:flex !important; }
 
     <!-- Hero media — full bleed right, fade left -->
     <div id="s1-hero-media" style="position:absolute;top:0;right:0;bottom:0;width:55%;overflow:hidden;">
-      <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:center top;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.3) 20%,rgba(0,0,0,0.7) 35%,black 50%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.3) 20%,rgba(0,0,0,0.7) 35%,black 50%);">
+      <video id="s1-video" autoplay loop muted playsinline webkit-playsinline preload="auto" disablePictureInPicture style="width:100%;height:100%;object-fit:cover;object-position:center top;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.3) 20%,rgba(0,0,0,0.7) 35%,black 50%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.3) 20%,rgba(0,0,0,0.7) 35%,black 50%);">
         <source src="brand elements/Magic brand images copy/lolacolafola_Wide_shot_of_a_large_festival_crowd_at_night_wat_6a2c5391-7436-45e6-a3fa-04f26e0da3ca_0.mp4" type="video/mp4">
       </video>
     </div>
@@ -3252,6 +3252,21 @@ scale = function() {
     document.getElementById('mlb-en').classList.remove('active');
     showBar();
   });
+})();
+
+/* ── Mobile: force video autoplay on iOS ── */
+(function() {
+  var v = document.getElementById('s1-video');
+  if (!v) return;
+  v.muted = true;
+  v.playsInline = true;
+  var tryPlay = function() {
+    var p = v.play();
+    if (p && p.catch) p.catch(function(){});
+  };
+  tryPlay();
+  document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+  document.addEventListener('click', tryPlay, { once: true });
 })();
 
 /* Run on load */
