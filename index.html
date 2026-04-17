@@ -981,6 +981,22 @@ html, body { width:100%; height:100%; background:var(--bg); font-family:'Gilroy'
   pointer-events:none;
 }
 
+@keyframes sunBreathe {
+  0%, 100% {
+    transform:translate(-50%,-50%) scale(1);
+    box-shadow:
+      0 0 40px 20px rgba(255,160,0,0.35),
+      0 0 100px 40px rgba(255,120,0,0.2),
+      0 0 180px 80px rgba(255,90,0,0.1);
+  }
+  50% {
+    transform:translate(-50%,-50%) scale(1.06);
+    box-shadow:
+      0 0 60px 30px rgba(255,180,40,0.5),
+      0 0 140px 60px rgba(255,140,20,0.3),
+      0 0 240px 100px rgba(255,100,0,0.15);
+  }
+}
 .ss-sun {
   position:absolute;
   top:50%;
@@ -989,17 +1005,17 @@ html, body { width:100%; height:100%; background:var(--bg); font-family:'Gilroy'
   width:80px;
   height:80px;
   border-radius:50%;
-  background:#FFB300;
+  background:radial-gradient(circle at 35% 35%, #FFD060 0%, #FFB300 55%, #FF8800 100%);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   z-index:30;
   box-shadow:
-    0 0 0 18px rgba(255,160,0,0.10),
-    0 0 0 40px rgba(255,130,0,0.07),
-    0 0 0 70px rgba(255,100,0,0.05),
-    0 0 0 110px rgba(255,80,0,0.03);
+    0 0 40px 20px rgba(255,160,0,0.35),
+    0 0 100px 40px rgba(255,120,0,0.2),
+    0 0 180px 80px rgba(255,90,0,0.1);
+  animation:sunBreathe 4s ease-in-out infinite;
 }
 
 .ss-glow {
@@ -1729,15 +1745,15 @@ body.present-mode #present-arrows { display:flex !important; }
         <div class="ss-star" style="width:3px;height:3px;top:50%;left:calc(50% - 265px);transform:translate(-50%,-50%);opacity:.65;"></div>
 
         <div class="ss-sun">
-          <span style="font-family:'Gilroy',sans-serif;font-weight:600;font-size:9px;color:rgba(60,60,60,0.6);letter-spacing:0.1em;" data-en="YOUR" data-fr="VOTRE">YOUR</span>
-          <span style="font-family:'Gilroy',sans-serif;font-weight:800;font-size:12px;color:rgba(50,50,50,0.85);letter-spacing:0.08em;" data-en="FESTIVAL" data-fr="FESTIVAL">FESTIVAL</span>
+          <span style="font-family:'Gilroy',sans-serif;font-weight:500;font-size:9px;color:rgba(60,40,10,0.45);letter-spacing:0.18em;" data-en="YOUR" data-fr="VOTRE">YOUR</span>
+          <span style="font-family:'Gilroy',sans-serif;font-weight:600;font-size:11px;color:rgba(60,40,10,0.65);letter-spacing:0.14em;" data-en="FESTIVAL" data-fr="FESTIVAL">FESTIVAL</span>
         </div>
 
         <div class="r1" style="--spd:20s;--s:0deg;">
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-105px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:38px;height:38px;background:#1a7adb;box-shadow:0 0 12px 6px rgba(26,122,219,0.45),0 0 28px 12px rgba(26,122,219,0.18);"><svg class="ss-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-chat"></use></svg></div>
+                <div class="ss-planet" style="width:38px;height:38px;background:#0082FF;box-shadow:0 0 12px 6px rgba(0,130,255,0.45),0 0 28px 12px rgba(0,130,255,0.18);"><svg class="ss-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-chat"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Chat" data-fr="Chat">Chat</div>
             </div>
@@ -1747,7 +1763,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-105px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:36px;height:36px;background:#0a8a7a;box-shadow:0 0 12px 6px rgba(10,138,122,0.45),0 0 28px 12px rgba(10,138,122,0.18);"><svg class="ss-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-card"></use></svg></div>
+                <div class="ss-planet" style="width:36px;height:36px;background:#1FCEFF;box-shadow:0 0 12px 6px rgba(31,206,255,0.45),0 0 28px 12px rgba(31,206,255,0.18);"><svg class="ss-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-card"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Fan Card" data-fr="Carte Fan">Fan Card</div>
             </div>
@@ -1757,7 +1773,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-105px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:36px;height:36px;background:#b03090;box-shadow:0 0 12px 6px rgba(176,48,144,0.45),0 0 28px 12px rgba(176,48,144,0.18);"><svg class="ss-icon ss-icon-music" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-music"></use></svg></div>
+                <div class="ss-planet" style="width:36px;height:36px;background:#CC2BFB;box-shadow:0 0 12px 6px rgba(204,43,251,0.45),0 0 28px 12px rgba(204,43,251,0.18);"><svg class="ss-icon ss-icon-music" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-music"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Music" data-fr="Musique">Music</div>
             </div>
@@ -1767,7 +1783,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-105px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:36px;height:36px;background:#b84020;box-shadow:0 0 12px 6px rgba(184,64,32,0.45),0 0 28px 12px rgba(184,64,32,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-bag"></use></svg></div>
+                <div class="ss-planet" style="width:36px;height:36px;background:#8C3CFF;box-shadow:0 0 12px 6px rgba(140,60,255,0.45),0 0 28px 12px rgba(140,60,255,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-bag"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Merch" data-fr="Merch">Merch</div>
             </div>
@@ -1778,7 +1794,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-185px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:44px;height:44px;background:#c07800;box-shadow:0 0 12px 6px rgba(192,120,0,0.45),0 0 28px 12px rgba(192,120,0,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-ticket"></use></svg></div>
+                <div class="ss-planet" style="width:44px;height:44px;background:#E8A020;box-shadow:0 0 12px 6px rgba(232,160,32,0.45),0 0 28px 12px rgba(232,160,32,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-ticket"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Tickets" data-fr="Billets">Tickets</div>
             </div>
@@ -1788,7 +1804,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-185px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:42px;height:42px;background:#0f7a5a;box-shadow:0 0 12px 6px rgba(15,122,90,0.45),0 0 28px 12px rgba(15,122,90,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-badge"></use></svg></div>
+                <div class="ss-planet" style="width:42px;height:42px;background:#FD3E84;box-shadow:0 0 12px 6px rgba(253,62,132,0.45),0 0 28px 12px rgba(253,62,132,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-badge"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Collectibles" data-fr="Collectibles">Collectibles</div>
             </div>
@@ -1798,7 +1814,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-185px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:42px;height:42px;background:#a03020;box-shadow:0 0 12px 6px rgba(160,48,32,0.45),0 0 28px 12px rgba(160,48,32,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-flame"></use></svg></div>
+                <div class="ss-planet" style="width:42px;height:42px;background:#CC2BFB;box-shadow:0 0 12px 6px rgba(204,43,251,0.45),0 0 28px 12px rgba(204,43,251,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-flame"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Hot Topics" data-fr="Tendances">Hot Topics</div>
             </div>
@@ -1809,7 +1825,7 @@ body.present-mode #present-arrows { display:flex !important; }
             <div class="ss-planet-wrap" style="top:-185px;">
               <div class="ss-pgroup">
                 <div class="ss-halo" style="width:62px;height:14px;border-color:rgba(255,210,60,0.65);"></div>
-                <div class="ss-planet" style="width:42px;height:42px;background:#c09000;box-shadow:0 0 12px 6px rgba(192,144,0,0.45),0 0 28px 12px rgba(192,144,0,0.18);"><svg class="ss-icon ss-icon-coin" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-coin"></use></svg></div>
+                <div class="ss-planet" style="width:42px;height:42px;background:#E8A020;box-shadow:0 0 12px 6px rgba(232,160,32,0.45),0 0 28px 12px rgba(232,160,32,0.18);"><svg class="ss-icon ss-icon-coin" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-coin"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Coins" data-fr="Coins">Coins</div>
             </div>
@@ -1819,7 +1835,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-185px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:40px;height:40px;background:#1a5eab;box-shadow:0 0 12px 6px rgba(26,94,171,0.45),0 0 28px 12px rgba(26,94,171,0.18);"><svg class="ss-icon ss-icon-game" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-gamepad"></use></svg></div>
+                <div class="ss-planet" style="width:40px;height:40px;background:#0082FF;box-shadow:0 0 12px 6px rgba(0,130,255,0.45),0 0 28px 12px rgba(0,130,255,0.18);"><svg class="ss-icon ss-icon-game" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-gamepad"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Games" data-fr="Jeux">Games</div>
             </div>
@@ -1830,7 +1846,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-265px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:48px;height:48px;background:#5a2db5;box-shadow:0 0 12px 6px rgba(90,45,181,0.45),0 0 28px 12px rgba(90,45,181,0.18);"><svg class="ss-icon ss-icon-xl" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-bolt"></use></svg></div>
+                <div class="ss-planet" style="width:48px;height:48px;background:#8C3CFF;box-shadow:0 0 12px 6px rgba(140,60,255,0.45),0 0 28px 12px rgba(140,60,255,0.18);"><svg class="ss-icon ss-icon-xl" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-bolt"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Magic Quest" data-fr="Magic Quest">Magic Quest</div>
             </div>
@@ -1841,7 +1857,7 @@ body.present-mode #present-arrows { display:flex !important; }
             <div class="ss-planet-wrap" style="top:-265px;">
               <div class="ss-pgroup">
                 <div class="ss-halo" style="width:66px;height:16px;border-color:rgba(200,80,220,0.65);"></div>
-                <div class="ss-planet" style="width:44px;height:44px;background:#8a2090;box-shadow:0 0 12px 6px rgba(138,32,144,0.45),0 0 28px 12px rgba(138,32,144,0.18);"><svg class="ss-icon ss-icon-crown" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-crown"></use></svg></div>
+                <div class="ss-planet" style="width:44px;height:44px;background:#CC2BFB;box-shadow:0 0 12px 6px rgba(204,43,251,0.45),0 0 28px 12px rgba(204,43,251,0.18);"><svg class="ss-icon ss-icon-crown" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-crown"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Fan Status" data-fr="Statut Fan">Fan Status</div>
             </div>
@@ -1851,7 +1867,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-265px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:46px;height:46px;background:#0c6848;box-shadow:0 0 12px 6px rgba(12,104,72,0.45),0 0 28px 12px rgba(12,104,72,0.18);"><svg class="ss-icon ss-icon-xl" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-medal"></use></svg></div>
+                <div class="ss-planet" style="width:46px;height:46px;background:#1FCEFF;box-shadow:0 0 12px 6px rgba(31,206,255,0.45),0 0 28px 12px rgba(31,206,255,0.18);"><svg class="ss-icon ss-icon-xl" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-medal"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Leaderboard" data-fr="Classement">Leaderboard</div>
             </div>
@@ -1861,7 +1877,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-265px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:44px;height:44px;background:#d44080;box-shadow:0 0 12px 6px rgba(212,64,128,0.45),0 0 28px 12px rgba(212,64,128,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-bookmark"></use></svg></div>
+                <div class="ss-planet" style="width:44px;height:44px;background:#FD3E84;box-shadow:0 0 12px 6px rgba(253,62,132,0.45),0 0 28px 12px rgba(253,62,132,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-bookmark"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Faves" data-fr="Favoris">Faves</div>
             </div>
@@ -1871,7 +1887,7 @@ body.present-mode #present-arrows { display:flex !important; }
           <div class="ss-arm">
             <div class="ss-planet-wrap" style="top:-265px;">
               <div class="ss-pgroup">
-                <div class="ss-planet" style="width:44px;height:44px;background:#b56008;box-shadow:0 0 12px 6px rgba(181,96,8,0.45),0 0 28px 12px rgba(181,96,8,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-lock"></use></svg></div>
+                <div class="ss-planet" style="width:44px;height:44px;background:#E8A020;box-shadow:0 0 12px 6px rgba(232,160,32,0.45),0 0 28px 12px rgba(232,160,32,0.18);"><svg class="ss-icon ss-icon-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#ss-i-lock"></use></svg></div>
               </div>
               <div class="ss-plabel" data-en="Exclusives" data-fr="Exclusifs">Exclusives</div>
             </div>
