@@ -3078,19 +3078,7 @@ function go(n) {
   updatePresentArrows();
   document.getElementById('progress').style.width = ((cur + 1) / TOTAL * 100) + '%';
   updateFanverseToggleUi();
-  /* Trigger cover shimmer once when landing on slide 0 */
-  if (cur === 0 && !go._shimmerActive) {
-    go._shimmerActive = true;
-    var el = document.querySelector('.cover-title');
-    if (el) {
-      el.style.animation = 'none';
-      el.offsetHeight;
-      el.style.animation = 'textShimmer 3.5s linear 0s 1 forwards';
-      el.addEventListener('animationend', function() { go._shimmerActive = false; }, { once: true });
-    }
-  } else if (cur !== 0) {
-    go._shimmerActive = false;
-  }
+  /* Cover shimmer runs continuously via CSS animation, no JS trigger needed */
 }
 function next() { if (cur < TOTAL - 1) go(cur + 1); }
 function prev() { if (cur > 0) go(cur - 1); }
