@@ -3338,7 +3338,7 @@ function repositionLegendLines() {
     if (!txt || !ln) return;
     var tw = txt.getComputedTextLength();
     var tx = parseFloat(txt.getAttribute('x'));
-    var x2 = tx - tw - 8;
+    var x2 = tx - tw - 16;
     var x1 = x2 - 32;
     ln.setAttribute('x1', x1);
     ln.setAttribute('x2', x2);
